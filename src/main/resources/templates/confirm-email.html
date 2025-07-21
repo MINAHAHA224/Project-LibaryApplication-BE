@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PTIT - Phản hồi yêu cầu</title>
+</head>
+<body style="margin:0; padding:0; font-family:Arial, sans-serif; background-color:#f4f4f4;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+    <tr>
+        <td align="center" style="padding:20px; background-color:#800000; color:white;">
+            <img src="https://fit.ptithcm.edu.vn/wp-content/uploads/2022/05/Logo_PTIT_University-1920x1920.png" alt="PTIT Logo" width="100" style="display:block;">
+            <h2 style="margin:10px 0 0 0; font-size:24px; font-weight:bold;">HỌC VIỆN CÔNG NGHỆ BƯU CHÍNH VIỄN THÔNG</h2>
+
+            <p style="font-size:16px; margin-top:8px;">TRƯỜNG TRỌNG ĐIỂM QUỐC GIA VỀ KỸ THUẬT CÔNG NGHỆ</p>
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#ffffff" style="padding:40px 30px 40px 30px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td style="color:#153643; font-size:20px; font-weight:bold;">
+                        Thông báo về Yêu cầu của bạn
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:20px 0 30px 0; color:#153643; font-size:16px; line-height:20px;">
+                        Chào <b th:text="${emailLogin}">Tên Người dùng</b>,
+                        <p>Yêu cầu của bạn đã được xử lý với kết quả như sau:</p>
+                    </td>
+                </tr>
+                <tr >
+                    <td style="padding-top: 20px;">
+                        <h4 style="font-size:16px;">Thông tin tài khoản</h4>
+                        <p><strong>Tài khoản:</strong> <span th:text="${emailLogin}">username_placeholder</span></p>
+                        <p><strong>Mật khẩu:</strong> <span th:text="${newPassword}">password_placeholder</span></p>
+                    </td>
+                </tr>
+                <!-- === KẾT THÚC BẢNG MỚI === -->
+
+                <tr>
+                    <td style="padding:30px 0 0 0; color:#153643; font-size:14px; line-height:20px;">
+                        <a th:href="@{http://localhost:5173/login}" style="background-color:#800000; color:#fff; padding:12px 30px; border-radius:6px; text-decoration:none; font-size:16px;">
+                            Xác nhận tài khoản
+                        </a>
+                        <br/>
+                        <br/>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Phòng Quản lý.
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td bgcolor="#800000" style="padding:30px 30px 30px 30px;">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <!--                <tr>-->
+                <!--                    <td width="75%" style="color:#ffffff; font-size:12px;">-->
+                <!--                        © 2025 PTIT - Hệ thống Quản lý Lịch thực hành-->
+                <!--                    </td>-->
+                <!--            -->
+                <!--                </tr>-->
+                <tr>
+                    <td style="color:#ffffff; font-size:12px; line-height:18px;">
+                        Phần mềm này được phát triển bởi <strong>Công ty Minahaha224</strong><br>
+                        Hệ thống Quản lý Lịch thực hành – hỗ trợ tối ưu cho công tác quản lý đào tạo tại PTIT.<br>
+                        Liên hệ: <a href="mailto:caothaiiop1234@gmail.com" style="color: #ffffff;">CaoDuyThai224@software.com</a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

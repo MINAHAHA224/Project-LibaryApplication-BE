@@ -1,0 +1,73 @@
+spring.application.name=ThuVienApplication
+
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+spring.datasource.name=computer
+# Thêm cấu hình DataSource chuẩn của Spring Boot
+spring.datasource.url=jdbc:sqlserver://DESKTOP-D4BGI46:1433;databaseName=QUANLY_THUVIEN;encrypt=true;trustServerCertificate=true
+spring.datasource.username=sa
+spring.datasource.password=123456
+spring.datasource.driver-class-name=com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+# Cấu hình cho Master DB (dùng riêng cho Restore)
+master.datasource.url=jdbc:sqlserver://DESKTOP-D4BGI46:1433;databaseName=master;encrypt=true;trustServerCertificate=true
+master.datasource.username=sa
+master.datasource.password=123456
+
+spring.servlet.multipart.enabled=true
+spring.servlet.multipart.max-file-size=50MB
+spring.servlet.multipart.max-request-size=50MB
+
+
+database.url=jdbc:sqlserver://DESKTOP-D4BGI46:1433;databaseName=QUANLY_THUVIEN;encrypt=true;trustServerCertificate=true
+database.drive=com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+
+# Connection CH? D�NG CHO T�C V? QU?N TR? (nh? Backup/Restore)
+database.master.url=jdbc:sqlserver://DESKTOP-D4BGI46:1433;databaseName=master;encrypt=true;trustServerCertificate=true
+
+backup.storage.path=D:/HeQuanTri_Lop/Backup_ThuVienApplication_Project
+
+
+file.upload-dir =D:/HeQuanTri_Lop/dausach
+
+
+# Cấu hình HikariCP Connection Pool
+spring.datasource.type=com.zaxxer.hikari.HikariDataSource
+spring.datasource.hikari.pool-name=ThuVienAppPool
+spring.datasource.hikari.maximum-pool-size=10
+spring.datasource.hikari.minimum-idle=2
+spring.datasource.hikari.connection-timeout=30000
+spring.datasource.hikari.idle-timeout=600000
+
+# Bật tất cả các endpoint của Actuator (hoặc chỉ bật restart)
+management.endpoints.web.exposure.include=*
+# Cho phép endpoint restart được kích hoạt
+management.endpoint.restart.enabled=true
+
+
+
+
+# === CẤU HÌNH ENCODING CHO WEB VÀ SERVER ===
+server.servlet.encoding.charset=UTF-8
+server.servlet.encoding.enabled=true
+server.servlet.encoding.force=true
+spring.messages.encoding=UTF-8
+
+
+# EMAIL SENDER
+spring.mail.from=caothaiiop1234@gmail.com
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=caothaiiop1234@gmail.com
+spring.mail.password=tsnhfyiktqywziln
+
+
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+
+
+# === CẤU HÌNH ENCODING CHO KẾT NỐI JDBC ===
+# (Phần này thường không cần thiết với driver mới nhưng thêm vào để đảm bảo)
+spring.datasource.connection-properties=useUnicode=true;characterEncoding=UTF-8

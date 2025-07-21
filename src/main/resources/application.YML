@@ -1,0 +1,80 @@
+spring:
+  application:
+    name: ThuVienApplication
+
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+  datasource:
+    name: computer
+    url: jdbc:sqlserver://DESKTOP-D4BGI46:1434;databaseName=QUANLY_THUVIEN;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: 123456
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    type: com.zaxxer.hikari.HikariDataSource
+    connection-properties: useUnicode=true;characterEncoding=UTF-8
+    hikari:
+      pool-name: ThuVienAppPool
+      maximum-pool-size: 20       # Tăng từ 10 → 20 (tuỳ mức độ tải hệ thống)
+      minimum-idle: 5             # Đảm bảo có sẵn connection
+      connection-timeout: 60000  # Tăng timeout lấy connection từ 30s → 60s
+      idle-timeout: 600000        # Không cần đổi
+      max-lifetime: 300000        # (5 phút) tránh lỗi "connection closed unexpectedly"
+
+
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 50MB
+
+  messages:
+    encoding: UTF-8
+
+  mail:
+    from: caothaiiop1234@gmail.com
+    host: smtp.gmail.com
+    port: 587
+    username: caothaiiop1234@gmail.com
+    password: tsnhfyiktqywziln
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    restart:
+      enabled: true
+
+master:
+  datasource:
+    url: jdbc:sqlserver://DESKTOP-D4BGI46:1434;databaseName=master;encrypt=true;trustServerCertificate=true
+    username: sa
+    password: 123456
+
+database:
+  url: jdbc:sqlserver://DESKTOP-D4BGI46:1434;databaseName=QUANLY_THUVIEN;encrypt=true;trustServerCertificate=true
+  drive: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  master:
+    url: jdbc:sqlserver://DESKTOP-D4BGI46:1434;databaseName=master;encrypt=true;trustServerCertificate=true
+
+backup:
+  storage:
+    path: D:/HeQuanTri_Lop/Backup_ThuVienApplication_Project
+
+file:
+  upload-dir: D:/HeQuanTri_Lop/dausach
